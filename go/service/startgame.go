@@ -1,11 +1,8 @@
 package service
 
-import (
-	"fmt"
-	"poker/model"
-	"poker/utils"
-)
+
 func GameStartText(){
+	/*
 	game:=GameFactory("texas")
 	_=game.MakeJudge()
     dealer:=game.MakeDealer()
@@ -28,6 +25,6 @@ func GameStartText(){
 	 utils.Deal(g,board)
 	result:=b.ProcessCard(0,[]int{18,30})
 	fmt.Println(result)
-	
+	*/
 	
 }

@@ -1,8 +1,8 @@
 package utils
 
 func (T*TexasDealer)Known(){
-   pool:= T.board.GetBoardCards()
-    d:=T.cards
+	pool:=T.DeletePool()
+    d:=T.Cards
 	if len(pool)!=0{
      for _,v:=range pool{
 		for j:=len(d.AllCards)-1;j>=0;j--{

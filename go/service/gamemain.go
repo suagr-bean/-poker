@@ -1,10 +1,7 @@
 package service
 
 import (
-	"fmt"
 	"poker/model"
-	
-	"poker/utils"
 )
 func GameMain(){
 	//1.造对象确认什么游戏
@@ -19,6 +16,7 @@ func GameMain(){
 	
     //公牌
 	board:=model.NewBoard([]int{8,9,10,25,36})
-    texas.MakeDealer(board,player)
+     dealer:=texas.MakeDealer()
+	 dealer.Init(board,player)
 	
 }

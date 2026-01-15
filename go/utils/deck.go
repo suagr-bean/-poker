@@ -1,20 +1,15 @@
 package utils
-
+import "fmt"
 import "poker/model"
 type TexasDealer struct{
 	Board *model.Board
 	Data *model.GameData
 	Cards *model.Deck
 }
-func NewTexasDealer(b*model.Board,data*model.GameData)*TexasDealer{
-	deck:=NewDeck()
-	Init()
-	t:=&TexasDealer{Board:b,Data:data,Cards:deck}
-	return t
+func NewTexasDealer()*TexasDealer{
+	return &TexasDealer{}
 }
-func Init(){
 
-}
 func NewDeck()*model.Deck{
     d:=&model.Deck{SendCard:make([]int,0),Knowns:make([]int,0)}
 	

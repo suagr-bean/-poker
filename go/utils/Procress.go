@@ -5,17 +5,17 @@ import (
 	
 )
 func(T*TexasDealer) Process(g*model.GameData,d*model.Deck,b*model.Board){
-	player:=g.GetAllPlayer()
+	player:=t.data.GetAllPlayer()
 	for _,v:=range player{
 		if len(v.Hand)==0{
-         cards:=T.Dealing(2,d)
+         cards:=T.Dealing(2)
 		 v.Hand=append(v.Hand,cards...)
 		}
 	}
-	card:= b.GetBoardCards()
+	card:= t.Board.GetBoardCards()
 	need:=5-len(card)
 	if need!=0{
-		send:=T.Dealing(need,d)
+		send:=T.Dealing(need)
 		b.Add(send)
 	}
 	
