@@ -6,17 +6,14 @@ import (
 func GameMain(){
 	//1.造对象确认什么游戏
 	texas:=GameFactory("texas")
-	//造发牌员 新牌组
-   
-    
-	//前面deck ，后面发牌员
-    //造玩家池 加玩家手牌
+    //添加玩家池和设置自己的牌
 	player:=model.NewGameData(6)
 	player.Add(0,[]int{15,30})
 	
-    //公牌
-	board:=model.NewBoard([]int{8,9,10,25,36})
+    //添加公牌
+	board:=model.NewBoard([]int{8,9,10})
      dealer:=texas.MakeDealer()
-	 dealer.Init(board,player)
-	
+	 all:=dealer.Init(board,player)//接收一个要处理的二维切片
+	judge:=texas.MakeJudge()
+	judge.InitCard(all)
 }

@@ -1,6 +1,7 @@
 package utils
 import"fmt"
-func(t*TexasDealer) Init(b*model.Board,data*model.GameData){
+import"poker/model"
+func(t*TexasDealer) Init(b*model.Board,data*model.GameData)[][]int{
 	deck:=NewDeck()
 	t.Board=b
 	t.Data=data
@@ -8,6 +9,7 @@ func(t*TexasDealer) Init(b*model.Board,data*model.GameData){
 	t.Known() //删掉已知牌组
 	t.ShuffleCard()
 	t.Process()//补玩家牌
-	fmt.Println(t.Board)
-	
+	all:=t.Deal()
+    fmt.Println(all)
+	return all
 }

@@ -1,4 +1,6 @@
 package model
 type Judge interface{
-	Check(play[]*Player)
+	DealCount()
+	InitCard(card[][]int)
+
 }

@@ -1,12 +1,15 @@
 package service
-import "fmt"
-import "poker/model"
-type Texas struct {
+
+type TexasJudge struct {
+  Deal [][]int
    
 }
-func (t*Texas)Check(play[]*model.Player){
-	fmt.Println("德州judge")
-     for _,v:=range play{
-       fmt.Println(v)
-	 }
+
+func NewJudge()*TexasJudge{
+	return &TexasJudge{}
+}
+func(t*TexasJudge) InitCard(card[][]int){
+  t.Deal=card
+  t.DealCount()//计数桶
+  
 }

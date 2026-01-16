@@ -1,5 +1,5 @@
 package utils
-import "fmt"
+
 import "poker/model"
 type TexasDealer struct{
 	Board *model.Board

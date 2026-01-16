@@ -1,23 +1,35 @@
 package model
-type CountBucket struct{
-	countColor[]int
-	countNumber[]int
-	
+type CountId struct{
+	Id []*Detail
 }
-func NewCount()*CountBucket{
-	c:=&CountBucket{countColor:make([]int,0),
-	countNumber:make([]int,0)}
+type Detail struct {
+     Cards[]int
+	 Number[]int
+	 Color []int
+}
+func NewCount()*CountId{
+	c:=&CountId{Id:make([]*Detail,0)}
+	 detail:=&Detail{
+       Cards:make([]int,0),
+	   Number:make([]int,0),
+       Color:make([]int,0),
+	 }
+	 c.Id=append(c.Id,detail)
 	return c
 }
-func(c*CountBucket) SetColor(color int){
-	c.countColor=append(c.countColor,color)
+func (Count*CountId)Set(d*Detail){
+    Count.Id=append(Count.Id,d)
 }
-func (c*CountBucket)GetColor()[]int{
-	return c.countColor
+func (Count*CountId)Get()[]*Detail{
+	return Count.Id
 }
-func(c*CountBucket)SetNumber(number int){
-	c.countNumber=append(c.countNumber,number)
+func (Count*CountId)SetAll(color[]int,number[]int,cards[]int){
+  d:=&Detail{}
+  d.Cards=cards
+  d.Color=color
+  d.Number=number
+  Count.Id=append(Count.Id,d)
 }
-func(c*CountBucket)GetNumber()[]int{
-	return c.countNumber
+func (Count*CountId)GetAll()[]*Detail{
+	return Count.Id
 }
