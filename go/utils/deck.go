@@ -5,6 +5,7 @@ type TexasDealer struct{
 	Board *model.Board
 	Data *model.GameData
 	Cards *model.Deck
+	Id int
 }
 func NewTexasDealer()*TexasDealer{
 	return &TexasDealer{}

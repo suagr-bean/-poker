@@ -1,7 +1,7 @@
 package model
 type Begin struct{
 	Person int
-	index int
+	Id int
 	Hand []int
 	PublicCard[]int
 	Frequency int

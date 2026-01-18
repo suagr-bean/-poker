@@ -1,26 +1,27 @@
 package service
 
 import (
-	
 	"poker/model"
 	service "poker/service/process"
 )
    
 type TexasJudge struct {
+   Id int
   Deal [][]int
   Count *model.CountId
   DealScore model.Score
-  Win int
-  callback(func(score int))
+  Win float32
+  callback(func(score float32))
 }
 
 func NewJudge()*TexasJudge{
 	return &TexasJudge{}
 }
-func (t*TexasJudge)CallBack(f func(score int)){
+func (t*TexasJudge)CallBack(f func(score float32)){
     t.callback=f //回调函数
 }
-func(t*TexasJudge) InitCard(card[][]int){
+func(t*TexasJudge) InitCard(id int,card[][]int){
+  t.Id=id
   t.Deal=card
   t.DealCount()//计数桶
   t.DealMask()//预处理 掩码
@@ -40,19 +41,27 @@ func (t*TexasJudge)Start(){
   t.Win+= t.Compare(scores)
   
 }
-func (t*TexasJudge)Compare(scores[]int)int{
+func (t*TexasJudge)Compare(scores[]int)float32{
     
-   my:=scores[0]
-   win:=0
-   for i:=1;i<len(scores);i++{
-    if my<scores[i]{
-      break
-    } else{
-      win++
-    }
+   my:=scores[t.Id]
+   
+   draw:=0
+   maxscore:=scores[0]
+   for _,v:=range scores{
+      if v>maxscore{
+        maxscore=v
+      }
    }
-   if win==len(scores)-1{
-    return 1
+   if my<maxscore{
+    return float32(0)
    }
-   return 0
+   for _,j:=range scores{
+     if j==maxscore{
+      draw++
+     }
+   }
+   if draw!=0{
+   return float32(1)/float32(draw)
+   }
+   return float32(1)
 }

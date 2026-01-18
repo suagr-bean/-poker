@@ -6,13 +6,14 @@ import (
 	"fmt"
 )
 func Begining(){
-	win:=0
+	win:=float32(0)
 	beginner:=&model.Begin{}
-	beginner.Hand=[]int{30,59}
-	beginner.PublicCard=[]int{18,15,58}
+	beginner.Hand=[]int{58,59}
+	beginner.Id=0
+	beginner.PublicCard=[]int{}
 	beginner.Person=6
-    beginner.Frequency=10000
-	result:=func(s int){
+    beginner.Frequency=100000
+	result:=func(s float32){
 		win+=s
 	}
 	for i:=0;i<beginner.Frequency;i++{
