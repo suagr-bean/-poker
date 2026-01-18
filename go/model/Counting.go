@@ -6,6 +6,10 @@ type Detail struct {
      Cards[]int
 	 Number[]int
 	 Color []int
+     CountNumber[]int
+	 CountColor[]int
+     MaskNumber uint16
+	 MaskColor [4]uint16
 }
 func NewCount()*CountId{
 	c:=&CountId{Id:make([]*Detail,0)}
@@ -23,11 +27,13 @@ func (Count*CountId)Set(d*Detail){
 func (Count*CountId)Get()[]*Detail{
 	return Count.Id
 }
-func (Count*CountId)SetAll(color[]int,number[]int,cards[]int){
+func (Count*CountId)SetAll(color[]int,number[]int,cards[]int,countColor[]int,countNumber[]int){
   d:=&Detail{}
   d.Cards=cards
   d.Color=color
   d.Number=number
+  d.CountColor=countColor
+  d.CountNumber=countNumber
   Count.Id=append(Count.Id,d)
 }
 func (Count*CountId)GetAll()[]*Detail{

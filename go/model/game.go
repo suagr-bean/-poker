@@ -26,4 +26,7 @@ func (g*GameData)Add(id int,hand[]int)*GameData{
 func (g*GameData)GetAllPlayer()[]*Player{
    return g.Players
 }
+func (g*GameData)GetIndex(id int)*Player{
+   return g.Players[id]
+}
 
