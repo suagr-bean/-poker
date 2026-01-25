@@ -9,16 +9,16 @@ import (
 )
 func Begining(cal*httpModel.CalData)float32{
 	var req float32
-	 Hand:=cal.Hand
+	 Hand:=cal.Cards.Hand
 	 dealHand:=utils.DealMap(Hand)
-     dealPublic:=utils.DealMap(cal.PublicCards)
+     dealPublic:=utils.DealMap(cal.Cards.Hand)
 	 fmt.Println(dealHand)
 	win:=float32(0)
 	beginner:=&model.Begin{}
 	beginner.Hand=dealHand
-	beginner.Id=0
+	beginner.Id=cal.Cards.Position
 	beginner.PublicCard=dealPublic
-	beginner.Person=cal.Person
+	beginner.Person=cal.Table.Person
     beginner.Frequency=50000
 	result:=func(s float32){
 		win+=s
