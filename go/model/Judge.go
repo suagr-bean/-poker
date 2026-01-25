@@ -22,5 +22,5 @@ func (c*Chain)Process(d*Detail)(bool,int){
 		 return deal,point
 		}
 	}
-	return  false,-100
+	return  false,0
 }

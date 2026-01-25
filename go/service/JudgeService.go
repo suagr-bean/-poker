@@ -2,7 +2,7 @@ package service
 
 import (
 	"poker/model"
-	service "poker/service/process"
+ "poker/service/chain"
   
 )
    
@@ -58,6 +58,7 @@ func (t*TexasJudge)Compare(scores[]int)float32{
       }
    }
    if my<maxscore{
+
     return float32(0)
    }
    for _,j:=range scores{

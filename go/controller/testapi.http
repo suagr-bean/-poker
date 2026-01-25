@@ -2,9 +2,9 @@ POST https://stunning-space-happiness-7vq96vr97vv53wp7r-8080.app.github.dev/cal
 Content-Type: application/json
 
 {
-      "cards":{ "hand": ["H3", "C6"],
+      "cards":{ "hand": ["C9", "D9"],
                "position":0,
-              "publicCards": ["S8","S10","D10"]
+              "publicCards": ["HK","S9","H7"]
                     },
       "table":{"person":6,
         "action":["1","3","allin"]
