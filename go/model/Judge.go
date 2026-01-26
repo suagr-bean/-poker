@@ -3,6 +3,7 @@ type Judge interface{
 	DealCount()
 	InitCard(id int,board*Board)
 	CallBack(func(score float32))
+	Record(func (score int))
 }
 type Score interface{
 	Processing(d*Detail)(bool,int)
@@ -22,5 +23,5 @@ func (c*Chain)Process(d*Detail)(bool,int){
 		 return deal,point
 		}
 	}
-	return  false,-100
+	return  false,0
 }

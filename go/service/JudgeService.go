@@ -2,7 +2,7 @@ package service
 
 import (
 	"poker/model"
-	service "poker/service/process"
+ "poker/service/chain"
   
 )
    
@@ -13,6 +13,7 @@ type TexasJudge struct {
   DealScore model.Score
   Win float32
   callback(func(score float32))
+  RecordBack(func(score int))
 }
 
 func NewJudge()*TexasJudge{
@@ -20,6 +21,9 @@ func NewJudge()*TexasJudge{
 }
 func (t*TexasJudge)CallBack(f func(score float32)){
     t.callback=f //回调函数
+}
+func(t*TexasJudge)Record(f func (scorec int)){
+  t.RecordBack=f
 }
 func(t*TexasJudge) InitCard(id int,board*model.Board){
   t.Id=id
@@ -49,7 +53,7 @@ func (t*TexasJudge)Start(){
 func (t*TexasJudge)Compare(scores[]int)float32{
     
    my:=scores[t.Id]
-  
+   
    draw:=0
    maxscore:=scores[0]
    for _,v:=range scores{
@@ -58,6 +62,7 @@ func (t*TexasJudge)Compare(scores[]int)float32{
       }
    }
    if my<maxscore{
+     t.RecordBack(maxscore)
     return float32(0)
    }
    for _,j:=range scores{

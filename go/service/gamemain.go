@@ -5,7 +5,7 @@ import (
 	
 )
  
-func GameMain(data*model.Begin,result func(s float32)){
+func GameMain(data*model.Begin,result func(s float32),record func(int)){
 	//1.造对象确认什么游戏
 	texas:=GameFactory("texas")
     //添加玩家池和设置自己的牌
@@ -23,5 +23,6 @@ func GameMain(data*model.Begin,result func(s float32)){
 	judge:=texas.MakeJudge()
 	
     judge.CallBack(result)
+	judge.Record(record)
 	judge.InitCard(id,board)
 }
