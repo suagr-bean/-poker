@@ -37,13 +37,16 @@ func SuitNumber(color int,number int)string{
 }
 type HandInfo struct {
 	Hand []string
-	Win float32
+	Win string
 	
 }
 var HandMap=make(map[int]HandInfo)
-func SetHandMap(id int, hand[]string,win float32){
+func SetHandMap(id int, hand[]string,win string){
 	HandMap[id]=HandInfo{
 		Hand:hand,
 		Win :win,
 	}
+}
+func GetMap()map[int]HandInfo{
+	return HandMap
 }

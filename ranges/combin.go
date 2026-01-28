@@ -1,9 +1,10 @@
 package ranges
 
 import (
-	"fmt"
+	
 	"poker/model"
 	"poker/utils"
+	
 )
 
 
@@ -11,8 +12,11 @@ func Combination (){
 	deck:=utils.NewDeck()
 	cards:=deck.AllCards
      model.InitMap()
-	 z:=0
 	 
+	 dir:="../../Range"
+	 fileName:="Hands.jsonl"
+
+	 url:="https://fluffy-fortnight-jj64qv579r7g2q4xr-8080.app.github.dev/cal"
 	for i:=len(cards)-1;i>=1;i--{
 		for j:=i-1;j>=0;j--{
            Suit1:=cards[i]&3
@@ -24,11 +28,14 @@ func Combination (){
 		 hand:=[]string{}
 		hand=append(hand, hand1)
 		hand=append(hand,hand2) 
-         
-		 model.SetHandMap(z,hand,0)
-		 fmt.Println(model.HandMap[z])
-	     z++
+		
+         data:=CalHand(hand)
+		result,_:= PostStart(url,data)
+		
+		 hands:=hand1+hand2
+		 SaveFile(dir,fileName,hand,result,hands)
 		}
 	}
-
+	 _=SortMap()//结果
+	 
 }

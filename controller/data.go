@@ -28,7 +28,7 @@ func Begining(cal*httpModel.CalData)float32{
 	beginner.Id=cal.Cards.Position
 	beginner.PublicCard=dealPublic
 	beginner.Person=cal.Table.Person
-    beginner.Frequency=100000
+    beginner.Frequency=10000
 	
 	job:=make(chan struct{},200)
 	chanResult:=make(chan float32,200)
