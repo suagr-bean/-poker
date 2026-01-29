@@ -1,12 +1,19 @@
 package service
 
-import ("poker/ranges"
-  "testing"
+import (
+	"poker/ranges"
+	"testing"
 )
-
-func TestSortMap(t *testing.T){
-
-	result:=ranges.SortMap()
-	deal:=result[1]
-    t.Log("test",deal)
+func TestSort(t *testing.T){
+   path:="../../Range/hand.jsonl"
+   dir:="../../Range"
+   fileName:="sortHand.jsonl"
+   data,_:=ranges.ReadFile(path)
+   sortdata:=ranges.SortFile(data)
+    for _,v:=range sortdata.HandIndex{
+        hand:=v.Hand
+        win:=v.Win
+      ranges.SaveFile(dir,fileName,hand,win)
+    }
+  
 }

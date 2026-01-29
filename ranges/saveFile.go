@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 )
-func SaveFile(dir string,filename string,data []string,win string ,jsondata string,)error{
+func SaveFile(dir string,filename string,data []string,win any )error{
 	err:=os.MkdirAll(dir,0755)
     if err!=nil{
 	 return err
@@ -19,7 +19,7 @@ func SaveFile(dir string,filename string,data []string,win string ,jsondata stri
    encoder:=json.NewEncoder(open)
    datajson:=map[string]any{
 
-	 "jsondata":data,
+	 "hand":data,
     "win":win,
    }
    encoder.Encode(datajson)

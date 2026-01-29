@@ -14,7 +14,7 @@ func Combination (){
      model.InitMap()
 	 
 	 dir:="../../Range"
-	 fileName:="Hands.jsonl"
+	 fileName:="handvs1.jsonl"
 
 	 url:="https://fluffy-fortnight-jj64qv579r7g2q4xr-8080.app.github.dev/cal"
 	for i:=len(cards)-1;i>=1;i--{
@@ -32,10 +32,10 @@ func Combination (){
          data:=CalHand(hand)
 		result,_:= PostStart(url,data)
 		
-		 hands:=hand1+hand2
-		 SaveFile(dir,fileName,hand,result,hands)
+		 
+		 SaveFile(dir,fileName,hand,result)
 		}
-	}
-	 _=SortMap()//结果
+	}  
+	  Compt()
 	 
 }

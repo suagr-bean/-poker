@@ -9,10 +9,12 @@ import (
 	"poker/model/httpModel"
 ) 
 func Route() {
+
 	mux:=http.NewServeMux()
 	mux.HandleFunc("POST /cal",DealRequest)
 	mux.HandleFunc("GET /go",Go)
 	log.Fatal(http.ListenAndServe(":8080",mux))
+	fmt.Println("api is start")
 }
 func DealRequest(w http.ResponseWriter, req*http.Request){
 	fmt.Println("收到请求")
