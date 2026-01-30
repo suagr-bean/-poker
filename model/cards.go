@@ -1,4 +1,5 @@
 package model
+//牌型
 type Stats struct{
 	RoyalFlush int
     StraightFlush int

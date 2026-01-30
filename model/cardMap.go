@@ -1,4 +1,5 @@
 package model
+
 var SuitMap=map[string]int{
   "C":0,
    "S":1,

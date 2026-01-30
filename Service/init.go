@@ -1,7 +1,7 @@
-package utils
+package Service
 
 import"poker/model"
-func(t*TexasDealer) Init(b*model.Board,data*model.GameData){
+func(t*TexasDealer) Init(b*model.PlayerInfo,data*model.Board){
 	deck:=NewDeck()
 	t.Board=b
 	t.Data=data
