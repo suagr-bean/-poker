@@ -1,13 +1,14 @@
 package Service
 
 import (
+	
 	"poker/model"
 )
 type TexasGame struct{
 
 }
 func (T*TexasGame)MakeJudge()model.Judge{
- return NewJudge()
+ return NewTexasJudge()
 }
 func (T*TexasGame)MakeDealer()model.Dealer{
    return NewTexasDealer()

@@ -1,4 +1,4 @@
-package service
+package chain
 
 import "poker/model"
 func NewChain()*model.Chain{

@@ -1,11 +1,11 @@
-package service
+package chain
 
 import "poker/model"
 
 type TwoPairs struct {
 }
 
-func (t *TwoPairs) Processing(d *model.Detail)(bool,int){
+func (t *TwoPairs) Node(d *model.Count)(bool,int){
 	number:=d.CountNumber
 	max:=0
 	second:=0

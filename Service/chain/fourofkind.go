@@ -1,10 +1,10 @@
-package service
+package chain
 
 import "poker/model"
 type FourOfKind struct{
    
 }
-func (f*FourOfKind)Processing(d*model.Detail)(bool,int){
+func (f*FourOfKind)Node(d*model.Count)(bool,int){
 	 Max:=0
 	 Kicker:=0
 	for i:=14;i>=2;i--{

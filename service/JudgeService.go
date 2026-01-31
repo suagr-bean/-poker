@@ -35,7 +35,7 @@ func (t*TexasJudge)Start()model.Result{
      chain:=service.NewChain()
      d:=t.Count.Id[i]
     
-     _,score:=chain.Process(d)
+     _,score:=chain.Start(d)
     
      scores=append(scores,score)
    }

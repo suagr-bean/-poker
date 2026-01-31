@@ -1,4 +1,4 @@
-package service
+package chain
 
 import (
 	"poker/model"
@@ -8,7 +8,7 @@ import (
 type Stright struct {
 }
 
-func (s *Stright) Processing(d *model.Detail)(bool,int){
+func (s *Stright)Node(d *model.Count)(bool,int){
 	mask:=d.MaskNumber
 	is,max:=utils.DealStright(mask)
 	score:=50000

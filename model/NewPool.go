@@ -1,7 +1,5 @@
 package model
 
-
-
 type Pool struct {
    DeletePool [] int
 }

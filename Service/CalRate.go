@@ -1,17 +1,17 @@
-package service
+package Service
 
 import (
 	"poker/model"
 	"poker/model/httpModel"
 	
-	"poker/utils"
+	"poker/Utils"
 )
 
 //业务入口 蒙特卡洛计算德州
 func CalRate(cal*httpModel.CalData)model.Result{
-   result:=model.Result{}
+   
    data:= ToDealData(cal)//处理好的对象
-    _=GameMain(data)//每一次的
+    result:=Start(data)//每一次的
 
    return result
 }
@@ -19,8 +19,8 @@ func CalRate(cal*httpModel.CalData)model.Result{
 func ToDealData(cal*httpModel.CalData)*model.Begin{
 	hand:=cal.Cards.Hand
 	public:=cal.Cards.PublicCards
-	Handmap:=utils.DealMap(hand)
-	PublicMap:=utils.DealMap(public)
+	Handmap:=Utils.DealMap(hand)
+	PublicMap:=Utils.DealMap(public)
 	begin:=&model.Begin{
 	  Person: cal.Table.Person,
 	  Id: cal.Cards.Position,

@@ -12,7 +12,7 @@ type PlayerInfo struct{
 type Player struct{
    Hand [] int
    PlayerRange int
-   
+   Score int
 }
 func NewPlayerInfo(person int)*PlayerInfo{
 	G:=&PlayerInfo{Players:make([]*Player,0,person),

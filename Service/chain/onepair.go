@@ -1,10 +1,10 @@
-package service
+package chain
 
 import "poker/model"
 type OnePair struct{
 
 }
-func(one*OnePair)Processing(d*model.Detail)(bool,int){
+func(one*OnePair)Node(d*model.Count)(bool,int){
 	number:=d.CountNumber
 	pair:=0
 	k1:=0

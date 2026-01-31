@@ -7,18 +7,7 @@ import (
 	"poker/model"
 	
 )
-/*
-func(t*TexasDealer) Init(b*model.PlayerInfo,data*model.Board){
 
-	
-	
-	t.Known() //删掉已知牌组
-	t.ShuffleCard()
-	t.Process()//补玩家牌
-	t.Deal()
-
-}
-	*/
 	//发牌员内部补玩家牌 发牌 
 func (t*TexasDealer)DealHand(p*model.PlayerInfo,b*model.Board)*model.Pool{
 	 poolobj:=model.NewPool(p,b)

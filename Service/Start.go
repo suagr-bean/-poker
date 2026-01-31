@@ -17,7 +17,9 @@ func Start(data*model.Begin)model.Result{
      dealer:=texas.MakeDealer()
 	 dealer.DealHand(player,board)
     //裁判
-	_=texas.MakeJudge()
-     R:=model.Result{}
-	 return  R
+	judge:=texas.MakeJudge()
+    result:=judge.Init(player,board)
+
+    
+	 return  result
 }

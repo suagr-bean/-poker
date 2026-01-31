@@ -1,10 +1,10 @@
-package service
+package chain
 
 import "poker/model"
 type HighCard struct{
 
 }
-func(h*HighCard)Processing(d*model.Detail)(bool,int){
+func(h*HighCard)Node(d*model.Count)(bool,int){
 	number:=d.CountNumber
 	h1:=0 
     h2:=0

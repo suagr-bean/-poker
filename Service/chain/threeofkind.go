@@ -1,9 +1,9 @@
-package service
+package chain
 import "poker/model"
 type ThreeOfKind struct{
 
 }
-func (t*ThreeOfKind)Processing(d*model.Detail)(bool,int){
+func (t*ThreeOfKind)Node(d*model.Count)(bool,int){
     number:=d.CountNumber
 	three:=0
 	kicker1:=0

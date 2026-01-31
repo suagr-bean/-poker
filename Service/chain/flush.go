@@ -1,4 +1,4 @@
-package service
+package chain
 
 import (
 	"math/bits"
@@ -8,7 +8,7 @@ import (
 type Flush struct {
 }
 
-func (f *Flush) Processing(d *model.Detail)(bool,int){
+func (f *Flush)Node(d *model.Count)(bool,int){
 	for i:=0;i<4;i++{
 	mask:=d.MaskColor[i]
 	if bits.OnesCount16(mask)>=5{
