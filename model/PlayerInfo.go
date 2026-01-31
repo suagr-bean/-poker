@@ -12,14 +12,16 @@ type PlayerInfo struct{
 type Player struct{
    Hand [] int
    PlayerRange int
+   
 }
 func NewPlayerInfo(person int)*PlayerInfo{
 	G:=&PlayerInfo{Players:make([]*Player,0,person),
 		Person:person}
-    G.Init()
+    G.init()//内部初始化
 	return G
 }
-func (g*PlayerInfo)Init(){
+
+func (g*PlayerInfo)init(){
 	for i:=0;i<g.Person;i++{
 		p:=&Player{Hand:make([]int,0),
 		PlayerRange:100}

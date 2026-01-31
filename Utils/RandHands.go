@@ -2,10 +2,11 @@ package Utils
 
 import "math/rand"
 //根据范围随机抽一组牌 
-func RandHands(chance int)[]int{
-	result:=RangeToMap(chance)
+func RandHands(chance int,cards[]int)[]int{
+	result:=RangeToMap(chance,cards)
    length:=len(result.HandIndex)
    index:=rand.Intn(length)
-   cards:=result.HandIndex[index].MapHand
-   return cards
+   card:=result.HandIndex[index].MapHand
+   
+   return card
 }

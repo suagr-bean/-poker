@@ -1,4 +1,4 @@
-package Utils
+package  Utils
 
 //根据范围截取手牌
 func PlayerRange(chance int)AllHand{
@@ -8,5 +8,6 @@ func PlayerRange(chance int)AllHand{
    result:=AllHand{
      HandIndex: allhand.HandIndex[:index],
    }
+
    return result 
 }

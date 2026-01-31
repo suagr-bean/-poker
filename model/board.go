@@ -12,5 +12,8 @@ func NewBoard(cards []int)*Board{
 func (b*Board)GetCards()[]int{
     return b.boardCards
 }
+func (b*Board)AddCards(cards[]int){
+    b.boardCards=append(b.boardCards, cards...)
+}
 
 

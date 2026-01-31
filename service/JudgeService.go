@@ -18,8 +18,8 @@ func NewJudge()*TexasJudge{
 	return &TexasJudge{}
 }
 
-func(t*TexasJudge) InitCard(id int,board*model.Board)model.Result{
-  t.Id=id
+func(t*TexasJudge) InitCard(board*model.Board)model.Result{
+  
   t.board=board
   
   t.DealCount()//计数桶

@@ -15,12 +15,9 @@ func Start(data*model.Begin)model.Result{
 	board:=model.NewBoard(data.PublicCard)
 	//造发牌员
      dealer:=texas.MakeDealer()
-	 
-	 dealer.Init(player,board)
-
-	judge:=texas.MakeJudge()
-	
-    
-     result:=judge.InitCard(id,board)
-	 return result
+	 dealer.DealHand(player,board)
+    //裁判
+	_=texas.MakeJudge()
+     R:=model.Result{}
+	 return  R
 }

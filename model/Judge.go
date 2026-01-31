@@ -1,7 +1,6 @@
 package model
 type Judge interface{
-	DealCount()
-	InitCard(id int,board*Board) Result
+	
 }
 type Score interface{
 	Processing(d*Detail)(bool,int)

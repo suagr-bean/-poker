@@ -1,7 +1,7 @@
 package model 
 
 type Dealer interface{
-	  Deal()
+	  DealHand(p*PlayerInfo,b*Board)*Pool
 }
 type Decker interface{
 	ShuffleCard()
