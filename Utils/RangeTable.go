@@ -4,7 +4,7 @@ import "log"
 
 //读文件的起手表
 func RangeTable()AllHand{
-	path:="../RangeTable/sortvs1.jsonl"
+	path:="/workspaces/-poker/poker/go/RangeTable/sortvs1.jsonl"
 	allhand,error:=ReadFile(path)
 	if error!=nil{
 	 log.Println("错误",error)

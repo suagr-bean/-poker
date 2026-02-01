@@ -2,7 +2,7 @@ package chain
 
 import (
 	"poker/model"
-	"poker/utils"
+	"poker/Utils"
 )
 
 type Stright struct {
@@ -10,7 +10,7 @@ type Stright struct {
 
 func (s *Stright)Node(d *model.Count)(bool,int){
 	mask:=d.MaskNumber
-	is,max:=utils.DealStright(mask)
+	is,max:=Utils.DealStright(mask)
 	score:=50000
 	if is{
      score+=max*10

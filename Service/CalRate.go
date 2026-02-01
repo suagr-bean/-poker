@@ -9,11 +9,18 @@ import (
 
 //业务入口 蒙特卡洛计算德州
 func CalRate(cal*httpModel.CalData)model.Result{
-   
+   final:=model.Result{}
    data:= ToDealData(cal)//处理好的对象
+   win:=float32(0.0)
+   for i:=0;i<data.Frequency;i++{
     result:=Start(data)//每一次的
-
-   return result
+     if result.Ev>0{
+		win++
+	 }
+   }
+    final.Ev=win/float32(data.Frequency)*100.0
+	
+   return final
 }
 //把数据简单处理了 该map的map
 func ToDealData(cal*httpModel.CalData)*model.Begin{

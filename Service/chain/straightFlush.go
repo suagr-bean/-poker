@@ -3,7 +3,7 @@ package chain
 import (
 	"math/bits"
 	"poker/model"
-	"poker/utils"
+	"poker/Utils"
 )
 type StraightFlush struct{
   
@@ -14,7 +14,7 @@ func (s*StraightFlush)Node(d*model.Count)(bool,int){
 	 if bits.OnesCount16(mask)<5{
 		continue
 	 }
-	result,max:=utils.DealStright(mask)
+	result,max:=Utils.DealStright(mask)
 	 if result==true{
 		score:=90000+max
        return true,score

@@ -26,9 +26,9 @@ func (T*TexasJudge)DealSingleScore(p*model.PlayerInfo,b*model.Board){
 	  for _,player:=range p.Players{
 		copy(cards[0:2],player.Hand)
      count:=DealCount(cards) 
-	 chains:=chain.NewChain()//造责任链打分
-	error,score:=chains.Start(count)//打分
-    if error{
+	 chains:=chain.NewChain()//造责任链打分	
+	err,score:=chains.Start(count)//打分
+    if err==false{//打分错误
 		return 
 	}
     player.Score=score
@@ -65,6 +65,8 @@ func (T*TexasJudge)Compare(p*model.PlayerInfo)model.Result{
 	  if player.Score>maxscore{
 		result.LoseIndex=append(result.LoseIndex,i)
 		result.LoseScore=append(result.LoseScore,player.Score)
+		result.Ev=0.0
+		 return result
 	  } else if player.Score==maxscore{
         draw++
 	  }else {
