@@ -1,0 +1,12 @@
+POST https://fluffy-fortnight-jj64qv579r7g2q4xr-8080.app.github.dev/cal
+Content-Type: application/json
+
+{
+      "cards":{ "hand": ["SK", "D10"],
+               "position":0,
+              "publicCards": ["D8","DK","D5"]
+                    },
+      "table":{"person":3,
+        "action":[25,25]
+      }               
+}
