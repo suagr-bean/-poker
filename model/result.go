@@ -1,7 +1,11 @@
 package model
 type Result struct {
-	WinScore float32
-     LoseIndex []int
+	Lose bool
 	LoseScore []int
-	Ev  float32
+	Ev  float32 
+	
+}
+type CalResult struct{
+	Win float32
+	LoseInfo CardType
 }

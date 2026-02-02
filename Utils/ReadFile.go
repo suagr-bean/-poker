@@ -26,6 +26,8 @@ func ReadFile(path string)(AllHand,error){
 		line:=scanner.Bytes()
 		h:=Hands{}
       json.Unmarshal(line,&h)
+		// 预计算 MapHand，避免后续重复解析
+		h.MapHand = DealMap(h.Hand)
 	  allhand.HandIndex = append(allhand.HandIndex,h)
 	}
 	

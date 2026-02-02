@@ -1,15 +1,22 @@
 package controller
 
 import (
-	"poker/model/httpModel"
-	"poker/Service"
 	"fmt"
+	"poker/Service"
+	"poker/model"
+	"poker/model/httpModel"
 )
+type DataResult struct{
+	Win float32 
+	Ev  float32 
 
-func PokerHandler(cal *httpModel.CalData) float32 {
-	fmt.Println("进入计算")
+}
+//控制数据流向
+func PokerHandler(cal *httpModel.CalData) model.CalResult {
+	
 	result:= Service.CalRate(cal)
-	win:=result.Ev
+	win:=result.Win
 	fmt.Println("结束计算",win)
-	return win
+    
+	return result
 }

@@ -47,7 +47,10 @@ func (t*TexasDealer)PlayerCards(p*model.PlayerInfo ,pool*model.Pool){
 	 }
 	 cards:=pool.GetPool()//要删除的牌
 	 if len(p.Players[i].Hand)==0{
-	   hand:= Utils.RandHands(p.Players[i].PlayerRange,cards)
+	   hand,error:= Utils.Rand(p.Players[i].PlayerRange,cards)//根据玩家range发牌
+	   if error!=nil{
+		//处理错误
+	   }
 	   pool.Add(hand)
 	   p.Players[i].Hand=append(p.Players[i].Hand,hand...)
 	 }

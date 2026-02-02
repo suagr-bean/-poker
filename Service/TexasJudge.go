@@ -58,26 +58,35 @@ func DealCount(cards[]int)*model.Count{
 func (T*TexasJudge)Compare(p*model.PlayerInfo)model.Result{
 	 draw:=0
 	 win:=0
+	 
+	 lose:=0
+	 max:=0
 	myid:=p.SkipId
 	result:=model.Result{}
 	maxscore:=p.Players[myid].Score
-	for i,player:=range p.Players{
-	  if player.Score>maxscore{
-		result.LoseIndex=append(result.LoseIndex,i)
-		result.LoseScore=append(result.LoseScore,player.Score)
-		result.Ev=0.0
-		 return result
+	for _,player:=range p.Players{
+	  if player.Score>maxscore{//输了
+		lose++
+	   if player.Score>max{
+		max=player.Score
+	   }
 	  } else if player.Score==maxscore{
         draw++
 	  }else {
 		continue
 	  }
 	}
+	 
+	if lose>0{
+		result.Lose=true
+		result.LoseScore=[]int{max}
+		return result
+	}
 	if draw>0&&win==0{
-	  result.WinScore=0
+	  result.Lose=false
 	  result.Ev=float32(1)/float32(draw)
 	}
-     result.WinScore=float32(maxscore)
+	 result.Lose=false
 	 result.Ev=1.0
 	return result
 }
