@@ -5,7 +5,7 @@ import (
 	
 )
  //反回judge计算的结果集
-func Start(data*model.Begin)model.Result{
+func SingleGame(data*model.InitData)model.Result{
 	//1.造对象确认什么游戏
 	texas:=GameFactory("texas")
     //添加玩家池

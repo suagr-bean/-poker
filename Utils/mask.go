@@ -1,5 +1,5 @@
-package Service
-
+package Utils
+//掩码方便计算 顺子的
 func DealMask(color[]int,number[]int)(uint16,[4]uint16){
     
 	var mask uint16

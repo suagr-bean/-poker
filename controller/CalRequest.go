@@ -2,9 +2,10 @@ package controller
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"poker/model/httpModel"
-) 
+)
 
 //处理德扑计算请求
 func CalRequest(w http.ResponseWriter, req*http.Request){
@@ -12,7 +13,8 @@ func CalRequest(w http.ResponseWriter, req*http.Request){
 	data:=httpModel.NewData()
 	err:=json.NewDecoder(req.Body).Decode(data)
 	if err!=nil{//解析JSON 失败 数据不合法
-	 http.Error(w,"数据不合法",http.StatusBadRequest)
+		errmsg:=fmt.Sprintf("数据不符合要求 %v",err)
+	 http.Error(w,errmsg,http.StatusBadRequest)
 		return 
 	}
 	 

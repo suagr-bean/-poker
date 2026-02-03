@@ -1,6 +1,5 @@
 package model
 type Count struct {
-	 
      Cards[]int
 	 Number[]int
 	 Color []int

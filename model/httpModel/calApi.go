@@ -11,6 +11,8 @@ type CardInfo struct{
 }
 type TableInfo struct{
 	Person int `json:"person"`
+	DeadMoney float32`json:"deadMoney"`
+	CallMoney float32 `json:"callMoney"`
 	PlayerAction []int `json:"action"`
 }
 func NewData()*CalData{

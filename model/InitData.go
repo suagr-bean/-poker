@@ -1,7 +1,7 @@
 package model
 
 
-type Begin struct{
+type InitData struct{
 	Person int
 	Id int
 	Hand []int

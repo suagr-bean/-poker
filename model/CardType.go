@@ -1,5 +1,5 @@
 package model
-
+// 统计用的
 type CardType struct{
     RoyalFlush float32
 	StraightFlush float32

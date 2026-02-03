@@ -2,6 +2,7 @@ package Service
 
 import (
 	"poker/Service/chain"
+	"poker/Utils"
 	"poker/model"
 )
 
@@ -34,7 +35,7 @@ func (T*TexasJudge)DealSingleScore(p*model.PlayerInfo,b*model.Board){
     player.Score=score
 }  
 }
-//计数
+//计数 算掩码
 func DealCount(cards[]int)*model.Count{
 	count:=model.NewCount(cards)
 	countcolor:=make([]int,4)
@@ -48,13 +49,14 @@ func DealCount(cards[]int)*model.Count{
 		countNumber[number]++
 	}
 	count.SetCount(countcolor,countNumber)
-	 mask,maskcolor:=DealMask(count.Color,count.Number)
+	 mask,maskcolor:=Utils.DealMask(count.Color,count.Number)
 
 	 count.MaskNumber=mask
 	 count.MaskColor=maskcolor
 	
 	return count
 }
+//比较 判断 是否赢了
 func (T*TexasJudge)Compare(p*model.PlayerInfo)model.Result{
 	 draw:=0
 	 win:=0

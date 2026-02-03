@@ -2,11 +2,13 @@ POST https://redesigned-succotash-qxxvx4vgg75c4v97-8080.app.github.dev/cal
 Content-Type: application/json
 
 {
-      "cards":{ "hand": ["SK", "D10"],
+      "cards":{ "hand": ["C10", "C4"],
                "position":0,
-              "publicCards": ["D8","DK","S3"]
+              "publicCards": ["D9","H3","C3"]
                     },
       "table":{"person":3,
-        "action":[25,25]
+        "action":[25],
+        "deadMoney":600000,
+        "callMoney":0
       }               
 }

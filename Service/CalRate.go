@@ -16,7 +16,7 @@ func CalRate(cal*httpModel.CalData)model.CalResult{
    data:= ToDealData(cal)//处理好的对象
    win:=float32(0.0)
    for i:=0;i<data.Frequency;i++{
-    result:=Start(data)//每一次的循环
+    result:=SingleGame(data)//每一次的循环
      if result.Lose==false{//赢了
 		win+=result.Ev
 	 }
@@ -26,21 +26,27 @@ func CalRate(cal*httpModel.CalData)model.CalResult{
 	   }
 	 }
    }
+   //计算输哪些牌
      cardtype:=LoseScores(data.Frequency)
-    
+	 winresult:=win/float32(data.Frequency)*100
+	 ev:=float32(0.0)
+     if cal.Table.DeadMoney>=0&&cal.Table.CallMoney>=0{ 
+       ev=ActionEv(cal.Table.DeadMoney,cal.Table.CallMoney,winresult)
+	 }
 	final:=model.CalResult{
-		Win: win/float32(data.Frequency)*100,
+		Win: winresult,
         LoseInfo: cardtype,
+		Ev :ev,
 	}
    return final
 }
 //把数据简单处理了 该map的map
-func ToDealData(cal*httpModel.CalData)*model.Begin{
+func ToDealData(cal*httpModel.CalData)*model.InitData{
 	hand:=cal.Cards.Hand
 	public:=cal.Cards.PublicCards
 	Handmap:=Utils.DealMap(hand)
 	PublicMap:=Utils.DealMap(public)
-	begin:=&model.Begin{
+      data:=&model.InitData{
 	  Person: cal.Table.Person,
 	  Id: cal.Cards.Position,
       Hand: Handmap,
@@ -48,7 +54,7 @@ func ToDealData(cal*httpModel.CalData)*model.Begin{
 	  Frequency: 10000,
 	  Action:cal.Table.PlayerAction,
 	}
-	return begin
+	return data
 }
 
 func LoseScores(frequency int)model.CardType{
@@ -77,4 +83,10 @@ func CountScore(score int){
 func GetScore(score int)int{
 	   n:=score/10000 //最小的分也是 1万
 	   return n
+}
+func ActionEv(deadMoney float32,callMoney float32, win float32)float32{
+	lose:=(float32(100.0)-win)/100
+	
+	ev:=(win/100)*(deadMoney)-lose*callMoney
+	return ev
 }

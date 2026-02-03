@@ -8,4 +8,5 @@ type Result struct {
 type CalResult struct{
 	Win float32
 	LoseInfo CardType
+	Ev float32
 }
